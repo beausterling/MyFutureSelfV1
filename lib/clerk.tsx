@@ -1,9 +1,9 @@
-import { ClerkProvider, useAuth } from '@clerk/clerk-expo';
+import { ClerkProvider } from '@clerk/clerk-expo';
 import { useCallback, useState } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, ActivityIndicator } from 'react-native';
 import * as SecureStore from 'expo-secure-store';
+import { colors } from '@/lib/theme';
 
-// SecureStore implementation for Clerk token storage
 const tokenCache = {
   async getToken(key: string) {
     try {
@@ -28,11 +28,17 @@ export default function ClerkProviderWithChildren({
 }) {
   const [loading, setLoading] = useState(true);
   
-  // Access the environment variable directly
   const publishableKey = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY;
 
   if (!publishableKey) {
-    throw new Error('Missing Clerk publishable key');
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: colors.secondary[950] }}>
+        <Text style={{ color: colors.error[500], marginBottom: 12, textAlign: 'center' }}>
+          Missing Clerk publishable key{'\n'}
+          Please check your .env file
+        </Text>
+      </View>
+    );
   }
 
   const handleInitialLoaded = useCallback(() => {
@@ -41,8 +47,8 @@ export default function ClerkProviderWithChildren({
 
   if (loading) {
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Loading...</Text>
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: colors.secondary[950] }}>
+        <ActivityIndicator size="large" color={colors.primary[500]} />
       </View>
     );
   }
