@@ -34,8 +34,8 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     eas: {
       projectId: 'your-project-id',
     },
+    clerkPublishableKey: process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY,
   },
-  // Move environment variables to the root level
   owner: 'your-expo-username',
   runtimeVersion: {
     policy: 'appVersion',
