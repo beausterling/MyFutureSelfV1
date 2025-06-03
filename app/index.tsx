@@ -20,19 +20,8 @@ export default function WelcomeScreen() {
   return (
     <GradientBackground>
       <StatusBar style="light" />
-      
+    
       <View style={styles.container}>
-        <Animated.View 
-          entering={FadeInDown.duration(800).delay(300)}
-          style={styles.header}
-        >
-          <Image
-            source={{ uri: 'https://images.pexels.com/photos/7433822/pexels-photo-7433822.jpeg?auto=compress&cs=tinysrgb&w=600' }}
-            style={styles.profileImage}
-          />
-          <Text style={styles.title}>My Future Self</Text>
-        </Animated.View>
-
         <Animated.View 
           entering={FadeInUp.duration(800).delay(600)}
           style={styles.content}
