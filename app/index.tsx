@@ -51,12 +51,6 @@ export default function WelcomeScreen() {
                 </View>
               </View>
             </View>
-            
-            <Image
-              source={{ uri: 'https://images.pexels.com/photos/7433822/pexels-photo-7433822.jpeg?auto=compress&cs=tinysrgb&w=600' }}
-              style={styles.personImage}
-              resizeMode="cover"
-            />
           </View>
           
           <View style={styles.textContainer}>
