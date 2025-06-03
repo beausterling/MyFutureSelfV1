@@ -1,24 +1,9 @@
 import React from 'react';
 import { Tabs } from 'expo-router';
 import { Chrome as Home, Target, Phone, User } from 'lucide-react-native';
-import tw from '@/lib/tw';
 import { colors } from '@/lib/theme';
-import { useAuth } from '@clerk/clerk-expo';
-import { Redirect } from 'expo-router';
 
 export default function TabLayout() {
-  const { isSignedIn, isLoaded } = useAuth();
-
-  // If the auth state isn't loaded, show nothing
-  if (!isLoaded) {
-    return null;
-  }
-
-  // If the user is not signed in, redirect to the sign-in page
-  if (!isSignedIn) {
-    return <Redirect href="/" />;
-  }
-
   return (
     <Tabs
       screenOptions={{
