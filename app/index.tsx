@@ -26,14 +26,10 @@ export default function WelcomeScreen() {
           entering={FadeInDown.duration(800).delay(300)}
           style={styles.header}
         >
-          <LinearGradient
-            colors={[colors.primary[400], colors.primary[600]]}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 1 }}
-            style={styles.logo}
-          >
-            <Text style={styles.logoText}>MF</Text>
-          </LinearGradient>
+          <Image
+            source={{ uri: 'https://images.pexels.com/photos/7433822/pexels-photo-7433822.jpeg?auto=compress&cs=tinysrgb&w=600' }}
+            style={styles.profileImage}
+          />
           <Text style={styles.title}>My Future Self</Text>
         </Animated.View>
 
@@ -41,18 +37,6 @@ export default function WelcomeScreen() {
           entering={FadeInUp.duration(800).delay(600)}
           style={styles.content}
         >
-          <View style={styles.illustrationContainer}>
-            <View style={[styles.innerCircle]}>
-              <View style={styles.circle1}>
-                <View style={styles.circle2}>
-                  <View style={styles.circle3}>
-                    <View style={styles.circle4} />
-                  </View>
-                </View>
-              </View>
-            </View>
-          </View>
-          
           <View style={styles.textContainer}>
             <Text style={styles.heading}>
               Accountability that actually works
@@ -101,86 +85,22 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 16,
   },
-  logo: {
-    width: 64,
-    height: 64,
-    borderRadius: 32,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: 8,
-  },
-  logoText: {
-    color: colors.white,
-    fontSize: 24,
-    fontFamily: 'Inter-Bold',
+  profileImage: {
+    width: 280,
+    height: 280,
+    borderRadius: 24,
+    marginBottom: 24,
   },
   title: {
     color: colors.white,
-    fontSize: 24,
+    fontSize: 32,
     fontFamily: 'Inter-SemiBold',
   },
   content: {
     alignItems: 'center',
     justifyContent: 'center',
-    flex: 1,
-  },
-  illustrationContainer: {
-    width: 280,
-    height: 280,
-    alignItems: 'center',
-    justifyContent: 'center',
-    position: 'relative',
-  },
-  innerCircle: {
-    position: 'absolute',
-    zIndex: 10,
-    width: 160,
-    height: 160,
-    borderRadius: 80,
-    backgroundColor: `${colors.primary[500]}20`,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  circle1: {
-    width: 128,
-    height: 128,
-    borderRadius: 64,
-    backgroundColor: `${colors.primary[500]}30`,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  circle2: {
-    width: 96,
-    height: 96,
-    borderRadius: 48,
-    backgroundColor: `${colors.primary[500]}40`,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  circle3: {
-    width: 64,
-    height: 64,
-    borderRadius: 32,
-    backgroundColor: `${colors.primary[500]}50`,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  circle4: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    backgroundColor: colors.primary[500],
-  },
-  personImage: {
-    position: 'absolute',
-    bottom: 0,
-    width: 180,
-    height: 230,
-    borderRadius: 20,
-    zIndex: 20,
   },
   textContainer: {
-    marginTop: 32,
     alignItems: 'center',
     paddingHorizontal: 16,
   },
