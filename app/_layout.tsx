@@ -4,9 +4,8 @@ import { StatusBar } from 'expo-status-bar';
 import { useFrameworkReady } from '@/hooks/useFrameworkReady';
 import { useFonts, Inter_400Regular, Inter_500Medium, Inter_600SemiBold, Inter_700Bold } from '@expo-google-fonts/inter';
 import * as SplashScreen from 'expo-splash-screen';
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import { colors } from '@/lib/theme';
 
+// Prevent splash screen from auto-hiding
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
@@ -31,18 +30,14 @@ export default function RootLayout() {
   }
 
   return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
-      <Stack screenOptions={{
-        headerShown: false,
-        contentStyle: { backgroundColor: colors.secondary[950] },
-        animation: 'slide_from_right',
-      }}>
-        <Stack.Screen name="index" />
+    <>
+      <Stack screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="landing" options={{ animation: 'fade' }} />
+        <Stack.Screen name="(tabs)" options={{ animation: 'fade' }} />
         <Stack.Screen name="login" />
         <Stack.Screen name="signup" />
-        <Stack.Screen name="(tabs)" options={{ animation: 'fade' }} />
       </Stack>
       <StatusBar style="light" />
-    </GestureHandlerRootView>
+    </>
   );
 }
